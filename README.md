@@ -28,3 +28,8 @@ Log your activity to a file/stop logging:
 tee file.txt
 notee
 ```
+
+Apply an sql file to a database:
+```
+source test.sql
+```

@@ -10,3 +10,4 @@ INNER JOIN Album on Track.AlbumId = Album.AlbumId
 INNER JOIN Artist on Album.ArtistId = Artist.ArtistId
 WHERE Artist.Name = "U2"
 ORDER BY Album.Title desc, Track.Name;
+SELECT MIN(LastName) FROM Customer;
