@@ -8,10 +8,7 @@ connection =  pymysql.connect(host='localhost', user=username, password='T3STsql
 
 try:
     with connection.cursor() as cursor:
-        row=[("Bob", 21, "1990-02-06 23:04:56"),
-        ("Jim", 56, "1955-05-09 13:12:45"),
-        ("Fred", 100, "1911-09-12 01:01:01")]
-        cursor.executemany("INSERT INTO Friends VALUES (%s,%s,%s);",row)
+        cursor.execute("UPDATE Friends SET age = 22 WHERE Name = 'Bob';")
         connection.commit()
 finally:
     connection.close()
