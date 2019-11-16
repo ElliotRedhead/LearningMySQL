@@ -8,12 +8,10 @@ connection =  pymysql.connect(host='localhost', user=username, password='T3STsql
 
 try:
     with connection.cursor() as cursor:
-        cursor.execute("""CREATE TABLE IF NOT EXISTS
-                        Friends(name char(20), age int, DOB datetime);""")
-        # The above  will display a warning if the table already exists.
-        sql = "SELECT * FROM Artist;"
-        cursor.execute(sql)
-        for row in cursor:
-            print(row)
+        row=[("Bob", 21, "1990-02-06 23:04:56"),
+        ("Jim", 56, "1955-05-09 13:12:45"),
+        ("Fred", 100, "1911-09-12 01:01:01")]
+        cursor.executemany("INSERT INTO Friends VALUES (%s,%s,%s);",row)
+        connection.commit()
 finally:
     connection.close()
