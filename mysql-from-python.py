@@ -6,7 +6,7 @@ username = "Elliot"
 connection =  pymysql.connect(host='localhost', user=username, password='T3STsqlpass$!', db="Chinook")
 
 try:
-    with connection.cursor() as cursor:
+    with connection.cursor(pymysql.cursors.DictCursor) as cursor:
         sql = "SELECT * FROM Artist;"
         cursor.execute(sql)
         for row in cursor:
