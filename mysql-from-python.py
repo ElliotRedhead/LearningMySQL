@@ -9,7 +9,7 @@ try:
     with connection.cursor() as cursor:
         sql = "SELECT * FROM Artist;"
         cursor.execute(sql)
-        result = cursor.fetchall()
-        print(result)
+        for row in cursor:
+            print(row)
 finally:
     connection.close()
