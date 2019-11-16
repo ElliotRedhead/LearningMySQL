@@ -33,3 +33,13 @@ Apply an sql file to a database:
 ```
 source test.sql
 ```
+
+Create a user and grant perissions
+```
+CREATE USER 'Elliot'@'localhost' IDENTIFIED BY 'T3STsqlpass$!';
+GRANT ALL PRIVILEGES ON *.* TO 'Elliot'@'localhost' WITH GRANT OPTION;
+```
+To satisfy the password cryptography requirement
+```
+pip install cryptography
+```
