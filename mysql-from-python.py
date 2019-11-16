@@ -8,7 +8,7 @@ connection =  pymysql.connect(host='localhost', user=username, password='T3STsql
 
 try:
     with connection.cursor() as cursor:
-        cursor.execute("UPDATE Friends SET age = 22 WHERE Name = 'Bob';")
+        cursor.execute("UPDATE Friends SET age = %s WHERE Name = %s;",(21,"Bob"))
         connection.commit()
 finally:
     connection.close()
